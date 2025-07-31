@@ -1,0 +1,62 @@
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #eee;
+}
+
+.navbarLeft {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #333;
+  margin-right: 30px;
+}
+
+.navLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+.navLinks li {
+  font-size: 0.95rem;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.navLinks li:hover {
+  color: #000;
+}
+
+.navbarRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.signInButton {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.signInButton:hover {
+  background-color: #555;
+}

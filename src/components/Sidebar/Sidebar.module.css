@@ -1,0 +1,46 @@
+.sidebarContainer {
+  width: 350px;
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  border-right: 1px solid #eee;
+}
+
+.sidebarTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.sidebarDescription {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.addSecondaryButton {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 15px;
+}
+
+.addSecondaryButton:hover {
+  background-color: #555;
+}
+
+.colorCombinationScheme {
+  font-size: 0.8rem;
+  color: #888;
+  text-align: center;
+  margin-top: 15px;
+}

@@ -1,0 +1,20 @@
+.contrast-checker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.compliant {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.non-compliant {
+  background-color: #f8d7da;
+  color: #721c24;
+}

@@ -39,6 +39,17 @@ Your task is to create a Build a responsive UI component that enables users to p
 
 ---
 
+## 🧩 Rules
 
+1. **file naming**
+   - left.nav.jsx
 
- 
+2. **folder naming**
+   - left_nav/index.jsx
+   - left_nav/header.jsx
+
+3. **export**
+   - named export ( export const App ()=>{})
+
+4. **styles naming**
+   - styles.navbarContainer
