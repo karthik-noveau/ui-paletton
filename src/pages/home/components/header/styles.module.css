@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  box-shadow: 1px 1px 12px 1px #80808033;
+}
+.container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.logo {
+  border-radius: 6px;
+  background: linear-gradient(135deg, #e057ec, #7a5ef8, #2f80ed, #1cb5e0);
+  color: white;
+  font-size: 20px;
+  padding: 2px 9px;
+}
+.logoName {
+  font-size: 22px;
+  color: #4875f1;
+  font-weight: 500;
+}
