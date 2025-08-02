@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./home.module.css";
 import { generateShades } from "./utils";
 import { Header } from "./components/header";
@@ -38,8 +38,6 @@ export const HomePage = () => {
   --${paletteName}-color-900: ${shades["primary-900"]};
   --${paletteName}-color-950: ${shades["primary-950"]};`;
     navigator.clipboard.writeText(cssVariables);
-    setCopied("CSS_VARS");
-    setTimeout(() => setCopied(null), 3000);
   };
 
   const onPaletteNameChange = (name) => setPaletteName(name);
@@ -78,8 +76,8 @@ export const HomePage = () => {
               UI Paletton Smart Color Generator
             </h1>
             <p className={`text-14 ${styles.description}`}>
-              Pick your main color then we’ll build the perfect matching shades for
-              you, instantly.
+              Pick your main color then we’ll build the perfect matching shades
+              for you, instantly.
             </p>
 
             <ColorInput

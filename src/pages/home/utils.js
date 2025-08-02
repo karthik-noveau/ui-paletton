@@ -208,6 +208,7 @@ export const generateShades = (hex) => {
   if (!/^#([0-9A-F]{3}){1,2}$/i.test(hex)) hex = "#808080";
 
   const baseRgb = hexToRgb(hex);
+  // eslint-disable-next-line no-unused-vars
   let [h, s, l] = hexToHsl(hex);
   const isPureBlack = hex.toLowerCase() === "#000000";
   const isPureGray = s < 10;
@@ -261,7 +262,7 @@ export const generateShades = (hex) => {
         "primary-300": 0.5,
         "primary-400": 0.4,
         "primary-500": 0.3,
-               "primary-600": 0.25,
+        "primary-600": 0.25,
         "primary-700": 0.2,
         "primary-800": 0.15,
         "primary-900": 0.1,

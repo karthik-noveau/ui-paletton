@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Input, ColorPicker } from "antd";
 import { FiCopy } from "react-icons/fi";
 import { Button } from "@skynoveau-ui/core";

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 
 export const ShadesGrid = ({ shades, paletteName }) => {
@@ -27,6 +27,7 @@ export const ShadesGrid = ({ shades, paletteName }) => {
             if (key === "base") return null;
             return (
               <ColorBox
+                key={key}
                 label={`${key.replace("primary-", "")}`}
                 color={shade}
                 isCopied={copied === shade}
