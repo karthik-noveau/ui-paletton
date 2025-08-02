@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@skynoveau-ui/core": "file:../skynoveau-ui/package/core",
+    "@skynoveau-ui/core": "1.0.26",
     "antd": "^5.26.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
