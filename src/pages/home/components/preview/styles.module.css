@@ -1,0 +1,159 @@
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryHoverButton:hover {
+  background-color: var(--hover-bg-color) !important;
+  transition: 0.3s all;
+}
+
+/* Practical Examples Layout */
+.practicalExamples {
+  margin-top: 2rem;
+}
+
+.paletteGrid {
+  margin-bottom: 2rem;
+}
+
+/* Components Grid */
+.componentsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.componentGroup {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.componentGroup h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Buttons */
+.buttonRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.buttonRow button {
+  padding: 0.75rem 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 130px;
+}
+
+.secondaryButton {
+  background-color: transparent;
+  border: 1px solid;
+}
+
+/* Cards */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 5px;
+}
+
+.cardHeader h4 {
+  margin: 0;
+}
+
+.cardIcon {
+  font-size: 1.5rem;
+}
+
+.card p {
+  line-height: 1.5;
+}
+
+.cardButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+@media (max-width: 1200px) {
+  .colorBox.space {
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .paletteContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .colorInputContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .colorPicker {
+    width: 100%;
+    height: 60px;
+  }
+
+  .toast {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .buttonGroup {
+    flex-direction: column;
+  }
+  .componentsGrid {
+    grid-template-columns: 1fr;
+  }
+}

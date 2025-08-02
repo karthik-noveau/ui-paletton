@@ -1,0 +1,5 @@
+:root {
+  --root-mobile-width: calc(100% - 30px);
+  --root-web-width: 90%;
+  --root-web-maxwidth: 1800px;
+}

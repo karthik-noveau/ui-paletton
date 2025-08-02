@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 35px;
+}
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 15px;
+}
+.randomColorButton:global(.button) {
+  background-color: var(--gray-color-100);
+  color: var(--black-color-500);
+  border-radius: 6px;
+}
+.randomColorButton:global(.button:hover),
+.exportButton:global(.button:hover) {
+  background-color: var(--gray-color-200);
+}
+.exportButton:global(.button) {
+  background-color: var(--gray-color-100);
+  color: var(--black-color-500);
+  border-radius: 6px;
+}
+.copyIcon {
+  margin-right: 8px;
+}
