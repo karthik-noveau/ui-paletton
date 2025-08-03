@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 export const Preview = ({ shades }) => {
   return (
     <div className={styles.practicalExamples}>
-      <h3 className={`text-16 weight-400 ${styles.paletteTitle}`}>
+      <h3 className={`text-18 weight-400 ${styles.paletteTitle}`}>
         Theme Preview
       </h3>
 

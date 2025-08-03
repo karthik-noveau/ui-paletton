@@ -5,6 +5,10 @@
   margin-bottom: 50px;
 }
 
+.paletteTitle {
+  color: var(--black-color-500);
+}
+
 .colorsRowTitle {
   text-align: start;
   padding-left: 1rem;

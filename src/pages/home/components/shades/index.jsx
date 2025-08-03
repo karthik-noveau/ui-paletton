@@ -92,7 +92,7 @@ const ColorBox = ({ label, color, isCopied, onCopy, className }) => {
 const ColorsRow = ({ children, title }) => {
   return (
     <>
-      <h3 className={`text-16 weight-400 ${styles.paletteTitle}`}>{title}</h3>
+      <h3 className={`text-18 weight-400 ${styles.paletteTitle}`}>{title}</h3>
       <div className={styles.colorsRow}>{children}</div>
     </>
   );

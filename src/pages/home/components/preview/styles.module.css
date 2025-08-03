@@ -4,6 +4,10 @@
   margin-top: 1.5rem;
 }
 
+.paletteTitle {
+  color: var(--black-color-500);
+}
+
 .button {
   padding: 0.8rem 1.5rem;
   border: none;

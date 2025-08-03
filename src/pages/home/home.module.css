@@ -14,10 +14,9 @@
   font-size: 2.5rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, #256aff, #6c5ce7);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: var(--black-color-500);
 }
 
 .subtitle {
