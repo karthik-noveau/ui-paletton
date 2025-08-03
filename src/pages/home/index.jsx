@@ -7,8 +7,8 @@ import { ShadesGrid } from "./components/shades";
 import { Preview } from "./components/preview";
 
 export const HomePage = () => {
-  const [baseColor, setBaseColor] = useState("#da169f");
-  const [shades, setShades] = useState(generateShades("#da169f"));
+  const [baseColor, setBaseColor] = useState("#256aff");
+  const [shades, setShades] = useState(generateShades("#256aff"));
   const [paletteName, setPaletteName] = useState("primary");
   const [colorError, setColorError] = useState(false);
 
