@@ -245,11 +245,11 @@ export const generateShades = (hex) => {
         "primary-500": 0.16,
       },
       darkShades: {
-        "primary-600": 0.05,
-        "primary-700": 0.2,
+        "primary-600": 0.55,
+        "primary-700": 0.45,
         "primary-800": 0.35,
-        "primary-900": 0.5,
-        "primary-950": 0.65,
+        "primary-900": 0.25,
+        "primary-950": 0.15,
       },
     },
     pureGray: {
