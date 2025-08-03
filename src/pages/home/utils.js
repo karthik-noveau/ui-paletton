@@ -255,18 +255,18 @@ export const generateShades = (hex) => {
     pureGray: {
       lightShades: {
         "primary-10": 1,
-        "primary-25": 0.9,
-        "primary-50": 0.8,
-        "primary-100": 0.7,
-        "primary-200": 0.6,
-        "primary-300": 0.5,
-        "primary-400": 0.4,
-        "primary-500": 0.3,
-        "primary-600": 0.25,
-        "primary-700": 0.2,
-        "primary-800": 0.15,
-        "primary-900": 0.1,
-        "primary-950": 0.05,
+        "primary-25": 0.96,
+        "primary-50": 0.92,
+        "primary-100": 0.88,
+        "primary-200": 0.76,
+        "primary-300": 0.64,
+        "primary-400": 0.52,
+        "primary-500": 0.4,
+        "primary-600": 0.32,
+        "primary-700": 0.24,
+        "primary-800": 0.16,
+        "primary-900": 0.08,
+        "primary-950": 0.04,
       },
       darkShades: {
         // "primary-600": 0.25,
@@ -287,7 +287,7 @@ export const generateShades = (hex) => {
       blackTarget = hexToRgb("#060606");
     } else if (type === "pureGray") {
       whiteTarget = hexToRgb("#ffffff");
-      blackTarget = hexToRgb("#808080");
+      blackTarget = hexToRgb("#707070");
     } else {
       whiteTarget = [255, 255, 255];
       blackTarget = [0, 0, 0];

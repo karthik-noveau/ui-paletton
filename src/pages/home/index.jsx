@@ -69,7 +69,7 @@ export const HomePage = () => {
     <>
       <Header />
 
-      <div className={`wrapper wrapper-margin-top`}>
+      <div className={`wrapper wrapper-margin`}>
         <div className={`container ${styles.column}`}>
           <div className={`${styles.leftColumn}`}>
             <h1 className={`text-24 weight-500 ${styles.title}`}>
