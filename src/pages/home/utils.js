@@ -74,10 +74,10 @@ export const generateShades = (hex) => {
       },
       darkShades: {
         "primary-600": 0.2,
-        "primary-700": 0.4,
+        "primary-700": 0.3,
         "primary-800": 0.6,
-        "primary-900": 0.8,
-        "primary-950": 0.9,
+        "primary-900": 0.7,
+        "primary-950": 0.8,
       },
       whiteTarget: [255, 255, 255],
       blackTarget: [0, 0, 0],
