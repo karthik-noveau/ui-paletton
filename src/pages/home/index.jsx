@@ -23,20 +23,27 @@ export const HomePage = () => {
 
   const onExport = () => {
     const cssVariables = `  /* ---------- ${paletteName} ---------- */
-  --${paletteName}-color: ${shades.base};
-  --${paletteName}-color-10: ${shades["primary-10"]};
+  --${paletteName}-color: ${shades.base}; ${
+      shades["primary-10"]
+        ? `  --${paletteName}-color-10: ${shades["primary-10"]};
   --${paletteName}-color-25: ${shades["primary-25"]};
-  --${paletteName}-color-50: ${shades["primary-50"]};
+  --${paletteName}-color-50: ${shades["primary-50"]};`
+        : ""
+    }
   --${paletteName}-color-100: ${shades["primary-100"]};
   --${paletteName}-color-200: ${shades["primary-200"]};
   --${paletteName}-color-300: ${shades["primary-300"]};
   --${paletteName}-color-400: ${shades["primary-400"]};
   --${paletteName}-color-500: ${shades["primary-500"]};
   --${paletteName}-color-600: ${shades["primary-600"]};
-  --${paletteName}-color-700: ${shades["primary-700"]};
+${
+  shades["primary-10"]
+    ? `  --${paletteName}-color-700: ${shades["primary-700"]};
   --${paletteName}-color-800: ${shades["primary-800"]};
   --${paletteName}-color-900: ${shades["primary-900"]};
-  --${paletteName}-color-950: ${shades["primary-950"]};`;
+  --${paletteName}-color-950: ${shades["primary-950"]};`
+    : ""
+}`;
     navigator.clipboard.writeText(cssVariables);
   };
 
