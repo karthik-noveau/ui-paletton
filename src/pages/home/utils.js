@@ -66,11 +66,14 @@ export const generateShades = (hex) => {
   const colorConfigs = {
     normal: {
       lightShades: {
+        "primary-10": 0.99,
+        "primary-25": 0.95,
         "primary-50": 0.9,
         "primary-100": 0.8,
         "primary-200": 0.6,
         "primary-300": 0.4,
         "primary-400": 0.2,
+        "primary-500": 0.1,
       },
       darkShades: {
         "primary-600": 0.2,
