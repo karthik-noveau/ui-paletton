@@ -76,13 +76,13 @@ export const Preview = ({ shades }) => {
             <div
               className={styles.card}
               style={{
-                backgroundColor: shades["primary-10"],
-                border: `1px solid ${shades["primary-400"]}`,
+                backgroundColor: shades["primary-25"],
+                // border: `1px solid ${shades["primary-400"]}`,
               }}
             >
               <div
                 className={styles.cardHeader}
-                style={{ color: shades["primary-600"] }}
+                style={{ color: shades["primary-500"] }}
               >
                 <h4
                   className="text-18 weight-500"
@@ -93,7 +93,7 @@ export const Preview = ({ shades }) => {
               </div>
               <p
                 className="text-13 weight-300"
-                style={{ color: shades["primary-600"] }}
+                style={{ color: shades["primary-500"] }}
               >
                 Another card variation with different styling.
               </p>
@@ -110,11 +110,11 @@ export const Preview = ({ shades }) => {
 
             <div
               className={styles.card}
-              style={{ backgroundColor: shades["primary-25"] }}
+              style={{ backgroundColor: shades["primary-50"] }}
             >
               <div
                 className={`${styles.cardHeader}`}
-                style={{ color: shades["primary-600"] }}
+                style={{ color: shades["primary-500"] }}
               >
                 <FiUser className={styles.cardIcon} />
                 <h4
@@ -126,7 +126,7 @@ export const Preview = ({ shades }) => {
               </div>
               <p
                 className={`text-13 weight-300`}
-                style={{ color: shades["primary-600"] }}
+                style={{ color: shades["primary-500"] }}
               >
                 This is an example card showing how your colors work in
                 components.
