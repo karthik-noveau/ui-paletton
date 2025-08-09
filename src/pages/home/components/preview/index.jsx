@@ -40,9 +40,19 @@ export const Preview = ({ shades }) => {
             <button
               className={`text-14 weight-300`}
               style={{
+                backgroundColor: shades["primary-25"],
+                color: shades["primary-600"],
+                border: `1px solid ${shades["primary-500"]}`,
+              }}
+            >
+              Primary 25
+            </button>
+            <button
+              className={`text-14 weight-300`}
+              style={{
                 backgroundColor: shades["primary-50"],
-                color: shades["primary-700"],
-                border: `1px solid ${shades["primary-300"]}`,
+                color: shades["primary-600"],
+                border: `1px solid ${shades["primary-500"]}`,
               }}
             >
               Primary 50
@@ -51,8 +61,8 @@ export const Preview = ({ shades }) => {
               className={`text-14 weight-300`}
               style={{
                 backgroundColor: shades["primary-100"],
-                color: shades["primary-700"],
-                border: `1px solid ${shades["primary-300"]}`,
+                color: shades["primary-600"],
+                border: `1px solid ${shades["primary-500"]}`,
               }}
             >
               Primary 100
@@ -61,8 +71,8 @@ export const Preview = ({ shades }) => {
               className={`text-14 weight-300`}
               style={{
                 backgroundColor: shades["primary-200"],
-                color: shades["primary-800"],
-                border: `1px solid ${shades["primary-400"]}`,
+                color: shades["primary-600"],
+                border: `1px solid ${shades["primary-500"]}`,
               }}
             >
               Primary 200
