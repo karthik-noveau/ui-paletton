@@ -4,11 +4,18 @@
   gap: 10px;
   width: 100%;
   margin-top: 35px;
+  margin-bottom: 90px;
 }
 .inputWrapper {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.errorText {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 4px;
 }
 
 .buttonContainer {
@@ -33,4 +40,215 @@
 }
 .copyIcon {
   margin-right: 8px;
+}
+
+.sliderGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sliderLabel {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--black-color-300);
+  display: flex;
+  align-items: center;
+}
+
+.slider :global(.ant-slider-track) {
+  background-color: var(--black-color-500) !important;
+}
+.slider :global(.ant-slider-handle::after:hover) {
+  box-shadow: none !important;
+}
+.slider :global(.ant-slider-handle)::after {
+  background-color: var(--black-color-500) !important;
+  border-color: var(--black-color-500) !important;
+  box-shadow: none !important;
+}
+
+.slider :global(.ant-slider-handle):hover::after,
+.slider :global(.ant-slider-handle):focus::after {
+  background-color: var(--black-color-500) !important;
+  border-color: var(--black-color-500) !important;
+  box-shadow: none !important;
+  outline: 4px solid rgb(52 52 52 / 27%);
+}
+
+.slider :global(.ant-slider-handle):focus-visible {
+  box-shadow: none !important;
+  outline: 4px solid rgb(52 52 52 / 27%);
+}
+
+.slider :global(.ant-slider-handle):active::after {
+  background-color: var(--black-color-500) !important;
+  border-color: var(--black-color-500) !important;
+}
+
+.slider:hover :global(.ant-slider-track) {
+  background-color: var(--black-color-500) !important;
+}
+
+.advancedSection {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-color-200);
+}
+
+.advancedToggle {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--black-color-500);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  text-align: left;
+  transition: color 0.3s ease;
+}
+
+.advancedToggle:hover {
+  color: var(--black-color-700);
+}
+
+.chevronIcon {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+  transform: rotate(-90deg);
+}
+
+.chevronIcon.chevronOpen {
+  transform: rotate(0deg);
+}
+
+.advancedContent {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.advancedContent.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 20px;
+}
+
+.advancedContent > div {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.controlSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black-color-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.sectionIcon {
+  font-size: 16px;
+  color: var(--black-color-400);
+}
+
+.labelIcon {
+  font-size: 14px;
+  color: var(--black-color-400);
+  margin-right: 4px;
+}
+
+.select {
+  width: 100%;
+  margin: 10px 0 30px 0;
+}
+
+.select :global(.ant-select-selector) {
+  padding: 0 !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  border: 1px solid var(--gray-color-300) !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  color: var(--black-color-500) !important;
+  background-color: white !important;
+  height: 35px !important;
+}
+
+.select :global(.ant-select-selector:hover) {
+  border-color: var(--gray-color-400) !important;
+}
+
+.select :global(.ant-select-focused .ant-select-selector) {
+  border-color: var(--black-color-500) !important;
+  box-shadow: none !important;
+}
+
+.select :global(.ant-select-selection-item) {
+  padding: 0 !important;
+  line-height: 35px !important;
+  height: 35px !important;
+}
+
+.select :global(.ant-select-selection-search) {
+  display: flex !important;
+  align-items: center !important;
+  height: 35px !important;
+}
+
+.select :global(.ant-select-arrow) {
+  top: 35% !important;
+  /* transform: translateY(-50%) !important; */
+  margin-top: 0 !important;
+}
+
+.resetButtonGroup {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.resetButton:global(.button) {
+  background-color: var(--gray-color-100);
+  color: var(--black-color-500);
+  border-radius: 6px;
+  flex: 1;
+}
+
+.resetButton:global(.button:hover) {
+  background-color: var(--gray-color-200);
+}
+
+.resetAllButton:global(.button) {
+  background-color: var(--gray-color-100);
+  color: var(--black-color-500);
+  border-radius: 6px;
+  flex: 1;
+}
+
+.resetAllButton:global(.button:hover) {
+  background-color: var(--gray-color-200);
+}
+
+@media (max-width: 950px) {
+  .container {
+    margin-bottom: 0px;
+  }
 }

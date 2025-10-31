@@ -1,4 +1,15 @@
-export const generateShades = (hex) => {
+export const generateShades = (hex, options = {}) => {
+  const {
+    lightAdjustment = 0,
+    darkAdjustment = 0,
+    saturationAdjustment = 0,
+    hueRotation = 0,
+    temperatureShift = 0,
+    distributionMode = "linear",
+    contrast = 0,
+    brightness = 0,
+  } = options;
+
   const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
 
   const hexToRgb = (hex) => {
@@ -42,6 +53,68 @@ export const generateShades = (hex) => {
       h *= 60;
     }
     return [h, s * 100, l * 100];
+  };
+
+  const hslToRgb = (h, s, l) => {
+    s /= 100;
+    l /= 100;
+    const k = (n) => (n + h / 30) % 12;
+    const a = s * Math.min(l, 1 - l);
+    const f = (n) =>
+      l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1));
+    return [
+      Math.round(255 * f(0)),
+      Math.round(255 * f(8)),
+      Math.round(255 * f(4)),
+    ];
+  };
+
+  const applyDistribution = (factor, mode) => {
+    switch (mode) {
+      case "exponential":
+        return Math.pow(factor, 1.5);
+      case "smooth":
+        return factor < 0.5
+          ? 2 * factor * factor
+          : 1 - Math.pow(-2 * factor + 2, 2) / 2;
+      default:
+        return factor;
+    }
+  };
+
+  const adjustHSL = (rgb, shadeKey, isLight) => {
+    let [h, s, l] = hexToHsl(rgbToHex(...rgb));
+
+    // Apply saturation adjustment
+    s = clamp(s + saturationAdjustment, 0, 100);
+
+    // Apply hue rotation based on shade position
+    const shadeNumber = parseInt(shadeKey.split("-")[1]) || 0;
+    const rotationFactor = isLight
+      ? -((1000 - shadeNumber) / 1000)
+      : (shadeNumber - 500) / 500;
+    h = (h + hueRotation * rotationFactor + 360) % 360;
+
+    // Apply temperature shift
+    if (temperatureShift !== 0) {
+      const tempHueShift = temperatureShift > 0 ? 30 : -150; // Warm (orange) or cool (blue)
+      const tempAmount = Math.abs(temperatureShift) / 100;
+      h = (h + tempHueShift * tempAmount + 360) % 360;
+    }
+
+    // Apply brightness adjustment
+    if (brightness !== 0) {
+      l = clamp(l + brightness * 0.5, 0, 100);
+    }
+
+    // Apply contrast adjustment
+    if (contrast !== 0) {
+      // Increase or decrease contrast by moving lightness away from or towards 50%
+      const contrastFactor = contrast / 100;
+      l = clamp(50 + (l - 50) * (1 + contrastFactor), 0, 100);
+    }
+
+    return hslToRgb(h, s, l);
   };
 
   const blendColor = (rgb, target, factor) => {
@@ -144,12 +217,34 @@ export const generateShades = (hex) => {
     const shades = { base: rgbToHex(...baseRgb) };
     const { whiteTarget, blackTarget } = config;
 
+    // Convert adjustments from -50 to +50 range to factor adjustments
+    const lightFactorAdjustment = lightAdjustment / 100;
+    const darkFactorAdjustment = darkAdjustment / 100;
+
     Object.entries(config.lightShades).forEach(([key, factor]) => {
-      shades[key] = rgbToHex(...blendColor(baseRgb, whiteTarget, factor));
+      let adjustedFactor = clamp(factor + lightFactorAdjustment, 0, 1);
+      adjustedFactor = applyDistribution(adjustedFactor, distributionMode);
+
+      const blendedRgb = blendColor(baseRgb, whiteTarget, adjustedFactor);
+      const finalRgb =
+        saturationAdjustment !== 0 || hueRotation !== 0 || temperatureShift !== 0
+          ? adjustHSL(blendedRgb, key, true)
+          : blendedRgb;
+
+      shades[key] = rgbToHex(...finalRgb);
     });
 
     Object.entries(config.darkShades).forEach(([key, factor]) => {
-      shades[key] = rgbToHex(...blendColor(baseRgb, blackTarget, factor));
+      let adjustedFactor = clamp(factor + darkFactorAdjustment, 0, 1);
+      adjustedFactor = applyDistribution(adjustedFactor, distributionMode);
+
+      const blendedRgb = blendColor(baseRgb, blackTarget, adjustedFactor);
+      const finalRgb =
+        saturationAdjustment !== 0 || hueRotation !== 0 || temperatureShift !== 0
+          ? adjustHSL(blendedRgb, key, false)
+          : blendedRgb;
+
+      shades[key] = rgbToHex(...finalRgb);
     });
 
     return shades;

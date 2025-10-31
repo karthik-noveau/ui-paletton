@@ -6,20 +6,122 @@ import { ColorInput } from "./components/color_input";
 import { ShadesGrid } from "./components/shades";
 import { Preview } from "./components/preview";
 
-export const HomePage = () => {
-  const [baseColor, setBaseColor] = useState("#256aff");
-  const [shades, setShades] = useState(generateShades("#256aff"));
-  const [paletteName, setPaletteName] = useState("primary");
-  const [colorError, setColorError] = useState(false);
+const DEFAULT_CONFIG = {
+  baseColor: "#256aff",
+  paletteName: "primary",
+  lightAdjustment: 0,
+  darkAdjustment: 0,
+  saturationAdjustment: 0,
+  hueRotation: 0,
+  temperatureShift: 0,
+  distributionMode: "linear",
+  contrast: 0,
+  brightness: 0,
+};
 
+const STORAGE_KEY = "ui-paletton-config";
+
+export const HomePage = () => {
+  // Load configuration from localStorage or use defaults
+  const loadConfig = () => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved
+        ? { ...DEFAULT_CONFIG, ...JSON.parse(saved) }
+        : DEFAULT_CONFIG;
+    } catch (error) {
+      console.error("Failed to load configuration:", error);
+      return DEFAULT_CONFIG;
+    }
+  };
+
+  const initialConfig = loadConfig();
+
+  const [baseColor, setBaseColor] = useState(initialConfig.baseColor);
+  const [shades, setShades] = useState(generateShades(initialConfig.baseColor));
+  const [paletteName, setPaletteName] = useState(initialConfig.paletteName);
+  const [colorError, setColorError] = useState(false);
+  const [lightAdjustment, setLightAdjustment] = useState(
+    initialConfig.lightAdjustment
+  );
+  const [darkAdjustment, setDarkAdjustment] = useState(
+    initialConfig.darkAdjustment
+  );
+  const [saturationAdjustment, setSaturationAdjustment] = useState(
+    initialConfig.saturationAdjustment
+  );
+  const [hueRotation, setHueRotation] = useState(initialConfig.hueRotation);
+  const [temperatureShift, setTemperatureShift] = useState(
+    initialConfig.temperatureShift
+  );
+  const [distributionMode, setDistributionMode] = useState(
+    initialConfig.distributionMode
+  );
+  const [contrast, setContrast] = useState(initialConfig.contrast);
+  const [brightness, setBrightness] = useState(initialConfig.brightness);
+
+  // Save configuration to localStorage whenever it changes
+  useEffect(() => {
+    try {
+      const config = {
+        baseColor,
+        paletteName,
+        lightAdjustment,
+        darkAdjustment,
+        saturationAdjustment,
+        hueRotation,
+        temperatureShift,
+        distributionMode,
+        contrast,
+        brightness,
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
+    } catch (error) {
+      console.error("Failed to save configuration:", error);
+    }
+  }, [
+    baseColor,
+    paletteName,
+    lightAdjustment,
+    darkAdjustment,
+    saturationAdjustment,
+    hueRotation,
+    temperatureShift,
+    distributionMode,
+    contrast,
+    brightness,
+  ]);
+
+  // Generate shades when color or adjustments change
   useEffect(() => {
     if (/^#([0-9A-F]{3}){1,2}$/i.test(baseColor)) {
-      setShades(generateShades(baseColor));
+      setShades(
+        generateShades(baseColor, {
+          lightAdjustment,
+          darkAdjustment,
+          saturationAdjustment,
+          hueRotation,
+          temperatureShift,
+          distributionMode,
+          contrast,
+          brightness,
+        })
+      );
       setColorError(false);
     } else {
       setColorError(true);
     }
-  }, [baseColor]);
+  }, [
+    baseColor,
+    lightAdjustment,
+    darkAdjustment,
+    saturationAdjustment,
+    hueRotation,
+    temperatureShift,
+    distributionMode,
+    contrast,
+    brightness,
+  ]);
 
   const onExport = () => {
     const cssVariables = `  /* ---------- ${paletteName} ---------- */
@@ -41,6 +143,29 @@ export const HomePage = () => {
 
   const onPaletteNameChange = (name) => setPaletteName(name);
   const onColorValueChange = (newColor) => setBaseColor(newColor);
+
+  const onResetAdvanced = () => {
+    setSaturationAdjustment(0);
+    setHueRotation(0);
+    setTemperatureShift(0);
+    setDistributionMode("linear");
+    setContrast(0);
+    setBrightness(0);
+  };
+
+  const onResetAll = () => {
+    setBaseColor(DEFAULT_CONFIG.baseColor);
+    setPaletteName(DEFAULT_CONFIG.paletteName);
+    setLightAdjustment(DEFAULT_CONFIG.lightAdjustment);
+    setDarkAdjustment(DEFAULT_CONFIG.darkAdjustment);
+    setSaturationAdjustment(DEFAULT_CONFIG.saturationAdjustment);
+    setHueRotation(DEFAULT_CONFIG.hueRotation);
+    setTemperatureShift(DEFAULT_CONFIG.temperatureShift);
+    setDistributionMode(DEFAULT_CONFIG.distributionMode);
+    setContrast(DEFAULT_CONFIG.contrast);
+    setBrightness(DEFAULT_CONFIG.brightness);
+  };
+
   const onRandomColorChange = () => {
     // Generate random HSL values with controlled saturation and lightness
     const h = Math.floor(Math.random() * 360); // Full hue spectrum
@@ -88,6 +213,24 @@ export const HomePage = () => {
               onColorValueChange={onColorValueChange}
               onRandomColorChange={onRandomColorChange}
               onExport={onExport}
+              lightAdjustment={lightAdjustment}
+              darkAdjustment={darkAdjustment}
+              onLightAdjustmentChange={setLightAdjustment}
+              onDarkAdjustmentChange={setDarkAdjustment}
+              saturationAdjustment={saturationAdjustment}
+              hueRotation={hueRotation}
+              temperatureShift={temperatureShift}
+              distributionMode={distributionMode}
+              contrast={contrast}
+              brightness={brightness}
+              onSaturationAdjustmentChange={setSaturationAdjustment}
+              onHueRotationChange={setHueRotation}
+              onTemperatureShiftChange={setTemperatureShift}
+              onDistributionModeChange={setDistributionMode}
+              onContrastChange={setContrast}
+              onBrightnessChange={setBrightness}
+              onResetAdvanced={onResetAdvanced}
+              onResetAll={onResetAll}
             />
           </div>
 
