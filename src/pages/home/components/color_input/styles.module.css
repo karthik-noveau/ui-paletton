@@ -20,23 +20,19 @@
 
 .buttonContainer {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   align-items: center;
   margin-top: 15px;
 }
-.randomColorButton:global(.button) {
+.actionButton:global(.button) {
   background-color: var(--gray-color-100);
   color: var(--black-color-500);
   border-radius: 6px;
+  width: max-content;
 }
-.randomColorButton:global(.button:hover),
-.exportButton:global(.button:hover) {
+.actionButton:global(.button:hover) {
   background-color: var(--gray-color-200);
-}
-.exportButton:global(.button) {
-  background-color: var(--gray-color-100);
-  color: var(--black-color-500);
-  border-radius: 6px;
 }
 .copyIcon {
   margin-right: 8px;
@@ -94,6 +90,8 @@
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid var(--gray-color-200);
+  height: calc(100vh - 60px);
+  overflow-y: auto;
 }
 
 .advancedToggle {
@@ -140,7 +138,7 @@
 }
 
 .advancedContent > div {
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
   gap: 0px;

@@ -144,15 +144,6 @@ export const HomePage = () => {
   const onPaletteNameChange = (name) => setPaletteName(name);
   const onColorValueChange = (newColor) => setBaseColor(newColor);
 
-  const onResetAdvanced = () => {
-    setSaturationAdjustment(0);
-    setHueRotation(0);
-    setTemperatureShift(0);
-    setDistributionMode("linear");
-    setContrast(0);
-    setBrightness(0);
-  };
-
   const onResetAll = () => {
     setBaseColor(DEFAULT_CONFIG.baseColor);
     setPaletteName(DEFAULT_CONFIG.paletteName);
@@ -229,7 +220,6 @@ export const HomePage = () => {
               onDistributionModeChange={setDistributionMode}
               onContrastChange={setContrast}
               onBrightnessChange={setBrightness}
-              onResetAdvanced={onResetAdvanced}
               onResetAll={onResetAll}
             />
           </div>

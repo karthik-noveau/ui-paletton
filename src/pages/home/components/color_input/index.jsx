@@ -41,11 +41,10 @@ export const ColorInput = ({
   onDistributionModeChange,
   onContrastChange,
   onBrightnessChange,
-  onResetAdvanced,
   onResetAll,
 }) => {
   const [internalColor, setInternalColor] = useState(colorValue || "#000000");
-  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [showAdvanced, setShowAdvanced] = useState(true);
 
   useEffect(() => {
     setInternalColor(colorValue);
@@ -92,22 +91,23 @@ export const ColorInput = ({
       </div>
 
       <div className={`${styles.buttonContainer}`}>
-        <Button
-          className={styles.randomColorButton}
-          onClick={onRandomColorChange}
-        >
+        <Button className={styles.actionButton} onClick={onRandomColorChange}>
           Random color
         </Button>
 
-        <Button className={styles.exportButton} onClick={onExport}>
+        <Button className={styles.actionButton} onClick={onExport}>
           <FiCopy className={styles.copyIcon} /> Export CSS
+        </Button>
+
+        <Button className={styles.actionButton} onClick={onResetAll}>
+          Reset All
         </Button>
       </div>
 
       <div className={styles.advancedSection}>
         <button
           className={styles.advancedToggle}
-          onClick={() => setShowAdvanced(!showAdvanced)}
+          onClick={() => setShowAdvanced(showAdvanced)}
         >
           Advanced Configuration
           <FiChevronDown
@@ -253,15 +253,6 @@ export const ColorInput = ({
                   ]}
                 />
               </div>
-            </div>
-
-            <div className={styles.resetButtonGroup}>
-              <Button className={styles.resetButton} onClick={onResetAdvanced}>
-                Reset Advanced
-              </Button>
-              <Button className={styles.resetAllButton} onClick={onResetAll}>
-                Reset All
-              </Button>
             </div>
           </div>
         </div>

@@ -7,8 +7,6 @@
   position: fixed;
   top: 100px;
   width: 350px;
-  height: calc(100vh - 60px);
-  overflow-y: auto;
   border-right: 1px solid var(--gray-color-100);
   padding-right: 30px;
   background-color: white;
