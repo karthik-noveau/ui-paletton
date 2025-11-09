@@ -134,7 +134,7 @@
   grid-template-rows: 1fr;
   opacity: 1;
   margin-top: 20px;
-  max-height: calc(100vh - 550px);
+  max-height: calc(100vh - 530px);
   overflow-y: auto;
   padding-right: 10px;
 }
@@ -188,7 +188,7 @@
 
 .select {
   width: 100%;
-  margin: 10px 0 30px 0;
+  margin: 10px 0 20px 0;
 }
 
 .select :global(.ant-select-selector) {
