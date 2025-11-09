@@ -107,7 +107,7 @@ export const ColorInput = ({
       <div className={styles.advancedSection}>
         <button
           className={styles.advancedToggle}
-          onClick={() => setShowAdvanced(showAdvanced)}
+          onClick={() => setShowAdvanced(!showAdvanced)}
         >
           Advanced Configuration
           <FiChevronDown
@@ -122,137 +122,135 @@ export const ColorInput = ({
             showAdvanced ? styles.open : ""
           }`}
         >
-          <div>
-            <div className={styles.controlSection}>
-              <div className={styles.sliderGroup}>
-                <label className={styles.sliderLabel}>
-                  <FiSun className={styles.labelIcon} />
-                  Light Shades: {lightAdjustment > 0 ? "+" : ""}
-                  {lightAdjustment}
-                </label>
-                <Slider
-                  min={-50}
-                  max={50}
-                  value={lightAdjustment}
-                  onChange={onLightAdjustmentChange}
-                  className={styles.slider}
-                />
-              </div>
-
-              <div className={styles.sliderGroup}>
-                <label className={styles.sliderLabel}>
-                  <FiMoon className={styles.labelIcon} />
-                  Dark Shades: {darkAdjustment > 0 ? "+" : ""}
-                  {darkAdjustment}
-                </label>
-                <Slider
-                  min={-50}
-                  max={50}
-                  value={darkAdjustment}
-                  onChange={onDarkAdjustmentChange}
-                  className={styles.slider}
-                />
-              </div>
+          <div className={styles.controlSection}>
+            <div className={styles.sliderGroup}>
+              <label className={styles.sliderLabel}>
+                <FiSun className={styles.labelIcon} />
+                Light Shades: {lightAdjustment > 0 ? "+" : ""}
+                {lightAdjustment}
+              </label>
+              <Slider
+                min={-50}
+                max={50}
+                value={lightAdjustment}
+                onChange={onLightAdjustmentChange}
+                className={styles.slider}
+              />
             </div>
 
-            <div className={styles.controlSection}>
-              <div className={styles.sliderGroup}>
-                <label className={styles.sliderLabel}>
-                  <FiDroplet className={styles.labelIcon} />
-                  Saturation: {saturationAdjustment > 0 ? "+" : ""}
-                  {saturationAdjustment}%
-                </label>
-                <Slider
-                  min={-100}
-                  max={100}
-                  value={saturationAdjustment}
-                  onChange={onSaturationAdjustmentChange}
-                  className={styles.slider}
-                />
-              </div>
+            <div className={styles.sliderGroup}>
+              <label className={styles.sliderLabel}>
+                <FiMoon className={styles.labelIcon} />
+                Dark Shades: {darkAdjustment > 0 ? "+" : ""}
+                {darkAdjustment}
+              </label>
+              <Slider
+                min={-50}
+                max={50}
+                value={darkAdjustment}
+                onChange={onDarkAdjustmentChange}
+                className={styles.slider}
+              />
+            </div>
+          </div>
 
-              <div className={styles.sliderGroup}>
-                <label className={styles.sliderLabel}>
-                  <FiRotateCw className={styles.labelIcon} />
-                  Hue Rotation: {hueRotation > 0 ? "+" : ""}
-                  {hueRotation}°
-                </label>
-                <Slider
-                  min={-30}
-                  max={30}
-                  value={hueRotation}
-                  onChange={onHueRotationChange}
-                  className={styles.slider}
-                />
-              </div>
-
-              <div className={styles.sliderGroup}>
-                <label className={styles.sliderLabel}>
-                  <FiThermometer className={styles.labelIcon} />
-                  Temperature:{" "}
-                  {temperatureShift > 0
-                    ? "Warmer +"
-                    : temperatureShift < 0
-                    ? "Cooler "
-                    : ""}
-                  {temperatureShift}
-                </label>
-                <Slider
-                  min={-50}
-                  max={50}
-                  value={temperatureShift}
-                  onChange={onTemperatureShiftChange}
-                  className={styles.slider}
-                />
-              </div>
+          <div className={styles.controlSection}>
+            <div className={styles.sliderGroup}>
+              <label className={styles.sliderLabel}>
+                <FiDroplet className={styles.labelIcon} />
+                Saturation: {saturationAdjustment > 0 ? "+" : ""}
+                {saturationAdjustment}%
+              </label>
+              <Slider
+                min={-100}
+                max={100}
+                value={saturationAdjustment}
+                onChange={onSaturationAdjustmentChange}
+                className={styles.slider}
+              />
             </div>
 
-            <div className={styles.controlSection}>
-              <div className={styles.sliderGroup}>
-                <label className={styles.sliderLabel}>
-                  <FiAperture className={styles.labelIcon} />
-                  Contrast: {contrast > 0 ? "+" : ""}
-                  {contrast}
-                </label>
-                <Slider
-                  min={-50}
-                  max={50}
-                  value={contrast}
-                  onChange={onContrastChange}
-                  className={styles.slider}
-                />
-              </div>
+            <div className={styles.sliderGroup}>
+              <label className={styles.sliderLabel}>
+                <FiRotateCw className={styles.labelIcon} />
+                Hue Rotation: {hueRotation > 0 ? "+" : ""}
+                {hueRotation}°
+              </label>
+              <Slider
+                min={-30}
+                max={30}
+                value={hueRotation}
+                onChange={onHueRotationChange}
+                className={styles.slider}
+              />
+            </div>
 
-              <div className={styles.sliderGroup}>
-                <label className={styles.sliderLabel}>
-                  <FiZap className={styles.labelIcon} />
-                  Brightness: {brightness > 0 ? "+" : ""}
-                  {brightness}
-                </label>
-                <Slider
-                  min={-50}
-                  max={50}
-                  value={brightness}
-                  onChange={onBrightnessChange}
-                  className={styles.slider}
-                />
-              </div>
-              <div className={styles.sliderGroup}>
-                <label className={styles.sliderLabel}>
-                  <FiGrid className={styles.labelIcon} />
-                  Distribution Mode
-                </label>
-                <Select
-                  value={distributionMode}
-                  onChange={onDistributionModeChange}
-                  className={styles.select}
-                  options={[
-                    { value: "linear", label: "Linear" },
-                    { value: "exponential", label: "Exponential" },
-                    { value: "smooth", label: "Smooth" },
-                  ]}
-                />
-              </div>
+            <div className={styles.sliderGroup}>
+              <label className={styles.sliderLabel}>
+                <FiThermometer className={styles.labelIcon} />
+                Temperature:{" "}
+                {temperatureShift > 0
+                  ? "Warmer +"
+                  : temperatureShift < 0
+                  ? "Cooler "
+                  : ""}
+                {temperatureShift}
+              </label>
+              <Slider
+                min={-50}
+                max={50}
+                value={temperatureShift}
+                onChange={onTemperatureShiftChange}
+                className={styles.slider}
+              />
+            </div>
+          </div>
+
+          <div className={styles.controlSection}>
+            <div className={styles.sliderGroup}>
+              <label className={styles.sliderLabel}>
+                <FiAperture className={styles.labelIcon} />
+                Contrast: {contrast > 0 ? "+" : ""}
+                {contrast}
+              </label>
+              <Slider
+                min={-50}
+                max={50}
+                value={contrast}
+                onChange={onContrastChange}
+                className={styles.slider}
+              />
+            </div>
+
+            <div className={styles.sliderGroup}>
+              <label className={styles.sliderLabel}>
+                <FiZap className={styles.labelIcon} />
+                Brightness: {brightness > 0 ? "+" : ""}
+                {brightness}
+              </label>
+              <Slider
+                min={-50}
+                max={50}
+                value={brightness}
+                onChange={onBrightnessChange}
+                className={styles.slider}
+              />
+            </div>
+            <div className={styles.sliderGroup}>
+              <label className={styles.sliderLabel}>
+                <FiGrid className={styles.labelIcon} />
+                Distribution Mode
+              </label>
+              <Select
+                value={distributionMode}
+                onChange={onDistributionModeChange}
+                className={styles.select}
+                options={[
+                  { value: "linear", label: "Linear" },
+                  { value: "exponential", label: "Exponential" },
+                  { value: "smooth", label: "Smooth" },
+                ]}
+              />
             </div>
           </div>
         </div>

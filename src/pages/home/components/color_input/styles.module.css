@@ -91,7 +91,6 @@
   padding-top: 20px;
   border-top: 1px solid var(--gray-color-200);
   height: calc(100vh - 60px);
-  overflow-y: auto;
 }
 
 .advancedToggle {
@@ -127,7 +126,7 @@
 .advancedContent {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+  transition: all 0.3s ease;
   opacity: 0;
 }
 
@@ -135,13 +134,27 @@
   grid-template-rows: 1fr;
   opacity: 1;
   margin-top: 20px;
+  max-height: calc(100vh - 550px);
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
-.advancedContent > div {
-  /* overflow: hidden; */
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
+.advancedContent.open::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.advancedContent.open::-webkit-scrollbar-track {
+  background: var(--gray-color-100); /* Color of the scrollbar track */
+  border-radius: 10px;
+}
+
+.advancedContent.open::-webkit-scrollbar-thumb {
+  background: var(--gray-color-300); /* Color of the scrollbar thumb */
+  border-radius: 10px;
+}
+
+.advancedContent.open::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-color-400); /* Color of the scrollbar thumb on hover */
 }
 
 .controlSection {
